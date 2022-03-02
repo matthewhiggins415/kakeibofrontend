@@ -32,8 +32,8 @@ const Navbar = () => {
         <Link style={style} to="/">Kakeibo</Link>
       </div>
       <LinkContainer>
-        <Link style={style} to="sign-up">Sign Up</Link>
-        <Link style={style} to="sign-in">Sign In</Link>
+        <Link style={style} to="register">Register</Link>
+        <Link style={style} to="login">Login</Link>
       </LinkContainer>
     </Container>
   )

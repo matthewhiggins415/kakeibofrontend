@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Landing from './views/Landing'
 import Navbar from './components/Navbar'
-import Signup from './views/Signup'
-import Signin from './views/Signin'
+import Register from './views/Register'
+import Login from './views/Login'
 
 const App = () => {
   return (
@@ -11,8 +11,8 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Landing />}/>
-          <Route path="/sign-up" element={<Signup />}/>
-          <Route path="/sign-in" element={<Signin />}/>
+          <Route path="/register" element={<Register />}/>
+          <Route path="/login" element={<Login />}/>
         </Routes>
     </Router>
     </div>
