@@ -1,7 +1,7 @@
 const Landing = () => {
   return (
     <div>
-      <h1>Welcome to Kakeibo</h1>
+      <h1>Kaikebo Landin Page</h1>
     </div>
   )
 }

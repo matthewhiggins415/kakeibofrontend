@@ -1,42 +1,64 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Container = styled.div`
-box-sizing: border-box;
+const DIV = styled.div`
+  position: sticky;
+  width: 98vw;
   height: 10vh;
-  width: 100%; 
-  background-color: gray;
-  color: white;
+  padding: 10px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 0 auto;
-  padding: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
 `
-
-const LinkContainer = styled.div`
-  width: 20%;
+const NavContainer = styled.div`
+  margin: 10px;
+  width: 25%;
   display: flex;
-  justify-content: space-between
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 `
 
-const Navbar = () => {
+const linkStyle = {
+  color: "white",
+  underline: "none", 
+  "textDecoration": "none",
+  "backgroundColor": "black", 
+  padding: "12px", 
+  "borderRadius": "10px"
+}
 
-  const style = { 
-    'textDecoration': 'none',
-    color: 'white'
-  }
+const logoLink = {
+  color: "black",
+  "fontSize": "20px",
+  underline: "none", 
+  "textDecoration": "none",
+  padding: "12px", 
+  "borderRadius": "10px"
+}
+
+const authenticatedOptions = (
+    <Link style={linkStyle} to='/sign-out' >Sign Out</Link>
+)
+
+const unauthenticatedOptions = (
+  <NavContainer>
+    <Link style={linkStyle} to='/register'>Register</Link>
+    <Link style={linkStyle} to='/login'>Login</Link>
+  </NavContainer>
+)
+
+const Header = ({ user }) => {
   return (
-    <Container>
-      <div>
-        <Link style={style} to="/">Kakeibo</Link>
-      </div>
-      <LinkContainer>
-        <Link style={style} to="register">Register</Link>
-        <Link style={style} to="login">Login</Link>
-      </LinkContainer>
-    </Container>
+    <DIV>
+      <Link style={logoLink} to="/">easyRent</Link>
+      {user ? authenticatedOptions : unauthenticatedOptions}
+    </DIV>
   )
 }
 
-export default Navbar
+export default Header

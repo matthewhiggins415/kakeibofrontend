@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Register from './views/Register'
 import Login from './views/Login'
 import Home from './views/Home'
+import SignOut from './components/SignOut'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -16,12 +17,14 @@ const App = () => {
   return (
     <div>
     <Router>
-        <Navbar />
+        <Navbar user={user}/>
         <Routes>
           <Route path="/" element={<Landing />} exact/>
           <Route path="/register" element={<Register setUser={setUser} exact/>}/>
           <Route path="/login" element={<Login setUser={setUser} exact/>}/>
-          <Route path="/home" element={<Home user={user} exact/>}/>
+          <Route path="/sign-out" element={<SignOut clearUser={clearUser} user={user}/>} exact/>
+          <Route path="/home" element={<Home user={user}/>} exact/>
+          <Route path="/add-expense" element={< user={user}/>} exact/>
         </Routes>
     </Router>
     </div>
