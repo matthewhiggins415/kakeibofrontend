@@ -48,20 +48,17 @@ const Register = ({ setUser }) => {
     event.preventDefault()
 
     try {
-      console.log(email)
-      console.log(password)
-      console.log(confirmPassword)
-      let res = await signUp(email, password, confirmPassword)
-      // const res = await signIn(email, password)
-      // setUser(res.data.user)
-      // console.log(res.data.user)
-      console.log(res)
+      await signUp(email, password, confirmPassword)
+      const res = await signIn(email, password)
+      setUser(res.data.user)
+      console.log(res.data.user)
+    
       // msgAlert({
       //   heading: 'Sign Up Success',
       //   message: signUpSuccess,
       //   variant: 'success'
       // })
-      // setShouldNavigate(true)
+      setShouldNavigate(true)
     } catch (error) {
       setEmail('')
       setPassword('')
@@ -74,11 +71,9 @@ const Register = ({ setUser }) => {
     }
   }
 
-
   if (shouldNavigate) {
     return <Navigate to='/home' />
   }
-
 
   return (
     <DIV>
