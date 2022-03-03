@@ -2,7 +2,7 @@ import axios from 'axios'
 import apiUrl from '../../src/apiConfig'
 
 
-// create 
+// read all  
 export const getAllExpenses = (user) => {
   return axios.get(apiUrl + '/expenses', {
     headers: {
@@ -11,8 +11,16 @@ export const getAllExpenses = (user) => {
   })
 }
 
-// read all 
-
+// create expense 
+export const createExpense = (user, data) => {
+  return axios.post(apiUrl + '/expense', {
+    expense: data
+  }, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
 
 // update 
 

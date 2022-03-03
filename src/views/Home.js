@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import getAllExpenses from '../api/expense'
-import { Redirect } from 'react-router'
+import { getAllExpenses } from '../api/expense'
+import { Navigate } from 'react-router-dom'
 
 
 const Home = ({ user }) => {
@@ -10,7 +10,7 @@ const Home = ({ user }) => {
 
   useEffect(() => {
     const retrieveExpenses = async (user) => {
-      let res = getAllExpenses(user)
+      let res = await getAllExpenses(user)
       console.log(res)
     }
     retrieveExpenses(user)
@@ -21,7 +21,7 @@ const Home = ({ user }) => {
   }
 
   if (redirect) {
-    return <Redirect to="/add-expense"/>
+    return <Navigate to="/add-expense"/>
   }
 
   return (
