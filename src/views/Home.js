@@ -17,6 +17,7 @@ const Header = styled.div`
   width: 90%;
   display: flex;
   align-items: center;
+  margin-top: 30px;
   justify-content: space-evenly;
 `
 
@@ -56,6 +57,10 @@ const Home = ({ user }) => {
 
   if (redirect) {
     return <Navigate to="/add-expense"/>
+  }
+
+  if (!user) {
+    return <Navigate to="/" />
   }
 
   return (

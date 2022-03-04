@@ -1,4 +1,6 @@
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Navigate } from 'react-router-dom'
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -19,14 +21,25 @@ const Button = styled.button`
   background-color: black;
   border: none;
   cursor: pointer;
+  border-radius: 10px;
 `
 
 const Expense = ({ expense }) => {
+  const [navigate, setNavigate] = useState(false)
+
+  const toggleNavigate = () => {
+    setNavigate(true)
+  }
+
+  if (navigate) {
+    return <Navigate to={`/expense/${expense._id}`} /> 
+  }
+
   return (
     <Container>
       <p>{expense.title}</p>
-      <p>${expense.cost}</p>
-      <Button>details</Button>
+      <p>{'$' + expense.cost}</p>
+      <Button onClick={toggleNavigate}>details</Button>
     </Container>
   )
 }

@@ -22,6 +22,15 @@ export const createExpense = (user, data) => {
   })
 }
 
+// Read individual
+export const getExpense = (user, id) => {
+  return axios.get(apiUrl + `/expense/${id}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
 // update 
 
 // delete 

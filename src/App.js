@@ -7,6 +7,7 @@ import Login from './views/Login'
 import Home from './views/Home'
 import SignOut from './components/SignOut'
 import AddExpense from './views/AddExpense'
+import ExpenseDetails from './views/ExpenseDetails'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/sign-out" element={<SignOut clearUser={clearUser} user={user}/>} exact/>
           <Route path="/home" element={<Home user={user}/>} exact/>
           <Route path="/add-expense" element={<AddExpense user={user}/>} exact/>
+          <Route path="/expense/:id" element={<ExpenseDetails user={user}/>} exact/>
         </Routes>
     </Router>
     </div>
