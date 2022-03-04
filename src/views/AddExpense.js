@@ -53,9 +53,10 @@ const Button = styled.button`
   box-sizing: border-box;
   width: 100%;   
   border: none;
-  padding: 15px;
-  background-color: black;
-  color: white;
+  border-radius: 4px;
+  padding: 16px 32px;
+  background-color: #141414;;
+  color: #fff;
   cursor: pointer;
 `
 
@@ -98,6 +99,10 @@ const AddExpense = ({ user }) => {
     return <Navigate to="/home" />
   }
 
+  if (!user) {
+    return <Navigate to="/home" />
+  }
+
   return (
     <Div>
       <Form onSubmit={handleSubmit}>
@@ -105,10 +110,11 @@ const AddExpense = ({ user }) => {
         <Input onChange={(e) => setDescription(e.target.value)} value={description} name="description" type="text" placeholder="description"/>
         <Input onChange={(e) => setCost(e.target.value)} value={cost} name="cost" type="text" pattern="[0-9]*" placeholder="cost" />
         <Select value={type} onChange={(e) => setType(e.target.value)}> 
-                  <option name="need"> Need</option>
-                  <option name="want">Want</option>
-                  <option name="cultural"> Cultural</option>
-                  <option name="unexpected">Unexpected</option>
+          <option value="" disabled selected>Select type</option>
+          <option name="need">Need</option>
+          <option name="want">Want</option>
+          <option name="cultural"> Cultural</option>
+          <option name="unexpected">Unexpected</option>
         </Select>
         <Button type="submit">Submit</Button>
         <Button onClick={toggleNavigate}>Cancel</Button>

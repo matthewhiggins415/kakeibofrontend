@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import { getExpense, deleteExpense } from '../api/expense'
 import { useParams, Navigate } from 'react-router-dom'
+import EditModal from '../components/EditModal'
+import { GlobalStyle } from '../globalStyles'
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -37,6 +39,7 @@ const Button = styled.button`
   width: 20%;   
   max-width: 200px;
   min-width: 100px;
+  border-radius: 4px;
   border: none;
   padding: 15px;
   background-color: black;
@@ -55,6 +58,7 @@ const DeleteContainer = styled.div`
 const ExpenseDetails = ({ user }) => {
   const [expense, setExpense] = useState({})
   const [navigate, setNavigate] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const { id } = useParams()
 
   useEffect(() => {
@@ -80,6 +84,10 @@ const ExpenseDetails = ({ user }) => {
     return <Navigate to="/home" />
   }
 
+  if (!user) {
+    return <Navigate to="sign-out"/>
+  }
+
   const handleDelete = async () => {
     try {
       let res = await deleteExpense(user, id)
@@ -90,11 +98,16 @@ const ExpenseDetails = ({ user }) => {
     }
   }
 
+  const toggleModal = () => {
+    setShowModal(!showModal)
+  }
+
   return (
     <Container>
+      <EditModal showModal={showModal} setShowModal={setShowModal}/> 
       <Header>
         <Button onClick={navigateBack}>Back</Button>
-        <Button>Edit</Button>
+        <Button onClick={toggleModal}>Edit</Button>
       </Header>
       <ExpenseContainer>
         <p>{expense.type}</p>
@@ -105,6 +118,7 @@ const ExpenseDetails = ({ user }) => {
       <DeleteContainer>
         <Button onClick={handleDelete}>Delete</Button>
       </DeleteContainer>
+      <GlobalStyle />
     </Container>
   )
 }

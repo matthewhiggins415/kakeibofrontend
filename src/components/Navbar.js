@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import logo from '../theArtLogo.png'
 
 const DIV = styled.div`
   position: sticky;
@@ -12,8 +13,9 @@ const DIV = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
-`
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  `
+
 const NavContainer = styled.div`
   margin: 10px;
   width: 25%;
@@ -24,21 +26,18 @@ const NavContainer = styled.div`
 `
 
 const linkStyle = {
-  color: "white",
+  color: "black",
   underline: "none", 
   "textDecoration": "none",
-  "backgroundColor": "black", 
+  "backgroundColor": "white", 
   padding: "12px", 
-  "borderRadius": "10px"
+  "borderRadius": "10px",
+  "box-shadow": "rgba(0, 0, 0, 0.15) 0px 2px 8px"
 }
 
-const logoLink = {
-  color: "black",
-  "fontSize": "20px",
-  underline: "none", 
-  "textDecoration": "none",
-  padding: "12px", 
-  "borderRadius": "10px"
+const imgStyle = {
+  width: "165px", 
+  height: "90px"
 }
 
 const authenticatedOptions = (
@@ -55,7 +54,10 @@ const unauthenticatedOptions = (
 const Header = ({ user }) => {
   return (
     <DIV>
-      <Link style={logoLink} to="/">Kakeibo</Link>
+      <Link to="/">
+        <img style={imgStyle} alt="logo" src={logo}/>
+      </Link>
+    
       {user ? authenticatedOptions : unauthenticatedOptions}
     </DIV>
   )

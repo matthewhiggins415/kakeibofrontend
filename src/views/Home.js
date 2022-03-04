@@ -27,6 +27,7 @@ const Button = styled.button`
   max-width: 200px;
   min-width: 100px;
   border: none;
+  border-radius: 4px;
   padding: 15px;
   background-color: black;
   color: white;
@@ -70,9 +71,9 @@ const Home = ({ user }) => {
         <Button onClick={addExpense}>New Expense</Button>
       </Header>
       <ExpenseContainer>
-        {expenses.map(expense => {
+        {expenses.map((expense, index) => {
           return (
-            <Expense key={expense._id} expense={expense}/>
+            <Expense key={expense._id} index={index} expense={expense}/>
           )
         })}
       </ExpenseContainer>

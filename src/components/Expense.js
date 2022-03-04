@@ -17,14 +17,15 @@ const Container = styled.div`
 
 const Button = styled.button`
   padding: 10px;
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: white;
   border: none;
   cursor: pointer;
   border-radius: 10px;
-`
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  `
 
-const Expense = ({ expense }) => {
+const Expense = ({ expense, index }) => {
   const [navigate, setNavigate] = useState(false)
 
   const toggleNavigate = () => {
@@ -37,7 +38,9 @@ const Expense = ({ expense }) => {
 
   return (
     <Container>
+      <p>{index + 1 + "."}</p>
       <p>{expense.title}</p>
+      <p>{expense.type}</p>
       <p>{'$' + expense.cost}</p>
       <Button onClick={toggleNavigate}>details</Button>
     </Container>
