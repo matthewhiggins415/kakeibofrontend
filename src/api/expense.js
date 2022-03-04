@@ -34,3 +34,10 @@ export const getExpense = (user, id) => {
 // update 
 
 // delete 
+export const deleteExpense = (user, id) => {
+  return axios.delete(apiUrl + `/expense/${id}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}

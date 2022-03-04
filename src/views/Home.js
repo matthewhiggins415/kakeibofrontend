@@ -14,11 +14,11 @@ const Container = styled.div`
 `
 
 const Header = styled.div`
-  width: 90%;
+  width: 60%;
   display: flex;
   align-items: center;
   margin-top: 30px;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `
 
 const Button = styled.button`
@@ -34,8 +34,8 @@ const Button = styled.button`
 `
 const ExpenseContainer = styled.div`
   box-sizing: border-box;
-  width: 90%;
-  margin: 10px auto;
+  width: 60%;
+  margin: 20px auto;
   height: auto;
 `
 

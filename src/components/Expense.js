@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 
 const Container = styled.div`
   box-sizing: border-box;
-  width: 60%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
