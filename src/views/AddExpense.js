@@ -26,7 +26,8 @@ const Form = styled.form`
   justify-content: space-evenly;
   align-items: center;
   padding: 15px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;`
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  `
 
 const Input = styled.input`
   box-sizing: border-box;

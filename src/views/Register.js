@@ -5,37 +5,47 @@ import styled from 'styled-components'
 import { signUp, signIn } from '../api/auth'
 
 const DIV = styled.div`
-  width: 400px;
-  height: 400px;
-  display: flex; 
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 60px auto;
-  border: 1px solid black; 
-  border-radius: 10px;
+box-sizing: border-box;
+height: 90vh;
+width: 100%;
+display: flex;
+align-items: start;
+justify-content: center;
+margin-top: 100px;
 `
 
 const FORM = styled.form`
-  height: 250px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly; 
+border-radius: 10px;
+width: 50%; 
+max-width: 400px;
+max-height: 500px;
+min-width: 300px;
+min-height: 400px;
+height: 50%; 
+display: flex;
+flex-direction: column; 
+justify-content: space-evenly;
+align-items: center;
+padding: 15px;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; 
 `
 const INPUT = styled.input`
-  padding: 10px;
-  border-radius: 10px;
-  outline: none;
-  border: 1px solid black;
-  background-color: white;
+box-sizing: border-box;
+padding: 15px;
+width: 100%;
+border-radius: 10px;
+outline: none;
+border: none;
+box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 `
 const BUTTON = styled.button`
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: white;
-  cursor: pointer;
+box-sizing: border-box;
+width: 100%;   
+border: none;
+padding: 15px;
+background-color: black;
+color: white;
+cursor: pointer;
 `
 
 const Register = ({ setUser }) => {
@@ -77,8 +87,8 @@ const Register = ({ setUser }) => {
 
   return (
     <DIV>
-      <h1>Register</h1>
       <FORM onSubmit={ onRegister }>
+        <h1>Register</h1>
         <INPUT 
           placeholder="email" 
           type="email"

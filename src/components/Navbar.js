@@ -55,7 +55,7 @@ const unauthenticatedOptions = (
 const Header = ({ user }) => {
   return (
     <DIV>
-      <Link style={logoLink} to="/">easyRent</Link>
+      <Link style={logoLink} to="/">Kakeibo</Link>
       {user ? authenticatedOptions : unauthenticatedOptions}
     </DIV>
   )
