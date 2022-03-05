@@ -55,6 +55,11 @@ const DeleteContainer = styled.div`
   justify-content: space-between;
 `
 
+const P = styled.p`
+  margin-top: 10px;
+  margin-bottom: 5px;
+`
+
 const ExpenseDetails = ({ user }) => {
   const [expense, setExpense] = useState({})
   const [navigate, setNavigate] = useState(false)
@@ -70,7 +75,7 @@ const ExpenseDetails = ({ user }) => {
     }
 
     retrieveExpense()
-  }, [])
+  }, [showModal])
 
   if (!user) {
     return <Navigate to="/sign-out"/>
@@ -91,7 +96,6 @@ const ExpenseDetails = ({ user }) => {
   const handleDelete = async () => {
     try {
       let res = await deleteExpense(user, id)
-      console.log(res)
       setNavigate(true)
     } catch(e) {
       console.log(e)
@@ -104,16 +108,16 @@ const ExpenseDetails = ({ user }) => {
 
   return (
     <Container>
-      <EditModal showModal={showModal} setShowModal={setShowModal}/> 
+      <EditModal user={user} id={id} showModal={showModal} setShowModal={setShowModal}/> 
       <Header>
         <Button onClick={navigateBack}>Back</Button>
         <Button onClick={toggleModal}>Edit</Button>
       </Header>
       <ExpenseContainer>
-        <p>{expense.type}</p>
-        <p>{expense.title}</p>
-        <p>{'$' + expense.cost}</p>
-        <p>{expense.description}</p>
+        <P>{expense.title}</P>
+        <P>{expense.description}</P>
+        <P>{'$' + expense.cost}</P>
+        <P>{expense.type}</P>
       </ExpenseContainer>
       <DeleteContainer>
         <Button onClick={handleDelete}>Delete</Button>

@@ -32,6 +32,15 @@ export const getExpense = (user, id) => {
 }
 
 // update 
+export const updateExpense = (user, id, data) => {
+  return axios.patch(apiUrl + `/expense/${id}`, {
+    expense: data
+  }, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
 
 // delete 
 export const deleteExpense = (user, id) => {

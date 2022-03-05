@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { MdClose } from 'react-icons/md';
 import { useSpring, animated } from 'react-spring';
+import { updateExpense } from '../api/expense'
 
 const Container = styled.div`
   width: 100%;
@@ -77,15 +78,10 @@ const Button = styled.button`
 `
 
 const EditModal = ({ user, id, setShowModal, showModal }) => {
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [type, setType] = useState('')
-    const [cost, setCost] = useState('')
-
-    useEffect(() => {
-      
-    })
-
+    const [title, setTitle] = useState(``)
+    const [description, setDescription] = useState(``)
+    const [cost, setCost] = useState(``)
+    const [type, setType] = useState(``)
 
     const animation = useSpring({
       config: {
@@ -95,9 +91,25 @@ const EditModal = ({ user, id, setShowModal, showModal }) => {
       transform: showModal ? `translateY(0%)` : `translateY(-100%)`
     });
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+      e.preventDefault()
       console.log('submitted')
+
+      try {
+        let updatedExpense = {
+          title: title, 
+          description: description, 
+          cost: cost, 
+          type: type
+        }
+        let res = await updateExpense(user, id, updatedExpense)
+        console.log(res)
+        setShowModal(false)
+      } catch(e) {
+        console.error(e)
+      }
     }
+
   return (
     <>
     { showModal ? <Container>
@@ -118,7 +130,7 @@ const EditModal = ({ user, id, setShowModal, showModal }) => {
             <option name="unexpected">Unexpected</option>
           </Select>
           <Button type="submit">Submit</Button>
-          <Button >Cancel</Button>
+          <Button onClick={() => setShowModal(false)}>Cancel</Button>
         </Form>
         </animated.div>
       </Container> : null}
