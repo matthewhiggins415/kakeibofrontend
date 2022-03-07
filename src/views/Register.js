@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
-
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { signUp, signIn } from '../api/auth'
 
-const DIV = styled.div`
+const DIV = styled(motion.div)`
 box-sizing: border-box;
 height: 90vh;
 width: 100%;
@@ -86,7 +86,10 @@ const Register = ({ setUser }) => {
   }
 
   return (
-    <DIV>
+    <DIV
+    animate={{ opacity: [0 ,1], y: [0, 30] }}
+    exit={{opacity: [1,0]}}
+    transition={{ duration: .4 }}>
       <FORM onSubmit={ onRegister }>
         <h1>Register</h1>
         <INPUT 

@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import { getAllExpenses } from '../api/expense'
 import { Navigate } from 'react-router-dom'
 import Expense from '../components/Expense'
+import { motion } from 'framer-motion'
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   box-sizing: border-box;
   width: 100%;
   height: 90vh;
@@ -65,7 +66,11 @@ const Home = ({ user }) => {
   }
 
   return (
-    <Container>
+    <Container 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Header>
         <h1>Your Expenses</h1>
         <Button onClick={addExpense}>New Expense</Button>

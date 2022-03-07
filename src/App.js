@@ -8,6 +8,7 @@ import Home from './views/Home'
 import SignOut from './components/SignOut'
 import AddExpense from './views/AddExpense'
 import ExpenseDetails from './views/ExpenseDetails'
+import { GlobalStyle } from './globalStyles'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -20,7 +21,7 @@ const App = () => {
     <div>
     <Router>
         <Navbar user={user}/>
-        <Routes>
+        <Routes >
           <Route path="/" element={<Landing />} exact/>
           <Route path="/register" element={<Register setUser={setUser} exact/>}/>
           <Route path="/login" element={<Login setUser={setUser} exact/>}/>
@@ -30,6 +31,8 @@ const App = () => {
           <Route path="/expense/:id" element={<ExpenseDetails user={user}/>} exact/>
         </Routes>
     </Router>
+
+    <GlobalStyle/>
     </div>
   );
 }

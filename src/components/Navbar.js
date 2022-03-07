@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import logo from '../theArtLogo.png'
 
 const DIV = styled.div`
+  box-sizing: border-box;
+  margin: 0;
   position: sticky;
   width: 98vw;
   height: 10vh;
@@ -37,11 +39,11 @@ const linkStyle = {
 
 const imgStyle = {
   width: "165px", 
-  height: "90px"
+  height: 'auto'
 }
 
 const authenticatedOptions = (
-    <Link style={linkStyle} to='/sign-out' >Sign Out</Link>
+  <Link style={linkStyle} to='/sign-out' >Sign Out</Link>
 )
 
 const unauthenticatedOptions = (

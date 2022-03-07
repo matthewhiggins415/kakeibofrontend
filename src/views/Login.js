@@ -2,8 +2,9 @@ import { Navigate } from 'react-router-dom'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { signIn } from '../api/auth'
+import { motion } from 'framer-motion'
 
-const DIV = styled.div`
+const DIV = styled(motion.div)`
 box-sizing: border-box;
 height: 90vh;
 width: 100%;
@@ -68,7 +69,12 @@ const Login = ({ setUser }) => {
   }
 
   return (
-    <DIV>
+    <DIV
+    animate={{ opacity: [0 ,1], y: [30, 0] }}
+    exit={{opacity: [1,0]}}
+    transition={{ duration: .4 }}
+
+    >
       <FORM onSubmit={onSignIn}>
         <h1>Login</h1>
         <INPUT 
