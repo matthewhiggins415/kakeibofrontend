@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Landing from './views/Landing'
 import Navbar from './components/Navbar'
 import Register from './views/Register'
@@ -9,8 +9,11 @@ import SignOut from './components/SignOut'
 import AddExpense from './views/AddExpense'
 import ExpenseDetails from './views/ExpenseDetails'
 import { GlobalStyle } from './globalStyles'
+import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
+  let location = useLocation();
+
   const [user, setUser] = useState(null)
   // const [messageAlerts, setMessageAlerts] = useState([]) 
   console.log(user)
@@ -19,8 +22,10 @@ const App = () => {
 
   return (
     <div>
-    <Router>
         <Navbar user={user}/>
+      
+        <AnimatePresence exitBeforeEnter>
+
         <Routes >
           <Route path="/" element={<Landing />} exact/>
           <Route path="/register" element={<Register setUser={setUser} exact/>}/>
@@ -30,7 +35,8 @@ const App = () => {
           <Route path="/add-expense" element={<AddExpense user={user}/>} exact/>
           <Route path="/expense/:id" element={<ExpenseDetails user={user}/>} exact/>
         </Routes>
-    </Router>
+        </AnimatePresence>
+
 
     <GlobalStyle/>
     </div>

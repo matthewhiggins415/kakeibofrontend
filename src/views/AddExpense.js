@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { createExpense } from '../api/expense'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
+import { animationOne, transition } from '../animations';
 
-const Div = styled.div`
+const Div = styled(motion.div)`
   box-sizing: border-box;
   height: 90vh;
   width: 100%;
@@ -104,7 +106,12 @@ const AddExpense = ({ user }) => {
   }
 
   return (
-    <Div>
+    <Div
+    initial='out'
+    animate='in'
+    exit='out'
+    variants={animationOne}
+    transition={transition}>
       <Form onSubmit={handleSubmit}>
         <Input onChange={(e) => setTitle(e.target.value)} value={title} name="title" type="text" placeholder="title"/>
         <Input onChange={(e) => setDescription(e.target.value)} value={description} name="description" type="text" placeholder="description"/>

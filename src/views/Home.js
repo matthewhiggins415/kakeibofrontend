@@ -4,6 +4,7 @@ import { getAllExpenses } from '../api/expense'
 import { Navigate } from 'react-router-dom'
 import Expense from '../components/Expense'
 import { motion } from 'framer-motion'
+import { animationOne, transition } from '../animations';
 
 const Container = styled(motion.div)`
   box-sizing: border-box;
@@ -67,9 +68,11 @@ const Home = ({ user }) => {
 
   return (
     <Container 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    initial='out'
+    animate='in'
+    exit='out'
+    variants={animationOne}
+    transition={transition}
     >
       <Header>
         <h1>Your Expenses</h1>

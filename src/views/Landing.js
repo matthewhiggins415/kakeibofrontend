@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
+import { animationOne, transition } from '../animations';
 
-const Div = styled.div`
+const Div = styled(motion.div)`
   box-sizing: border-box;
   width: 100%;
   height: 90vh;
@@ -21,7 +22,13 @@ const P = styled.p`
 
 const Landing = () => {
   return (
-    <Div>
+    <Div
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={transition}
+    >
       <P>Kaikebo</P>
     </Div>
   )

@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { signUp, signIn } from '../api/auth'
+import { animationOne, transition } from '../animations';
 
 const DIV = styled(motion.div)`
 box-sizing: border-box;
@@ -87,9 +88,11 @@ const Register = ({ setUser }) => {
 
   return (
     <DIV
-    animate={{ opacity: [0 ,1], y: [0, 30] }}
-    exit={{opacity: [1,0]}}
-    transition={{ duration: .4 }}>
+    initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={transition}>
       <FORM onSubmit={ onRegister }>
         <h1>Register</h1>
         <INPUT 

@@ -4,8 +4,10 @@ import { getExpense, deleteExpense } from '../api/expense'
 import { useParams, Navigate } from 'react-router-dom'
 import EditModal from '../components/EditModal'
 import { GlobalStyle } from '../globalStyles'
+import { motion } from 'framer-motion'
+import { animationOne, transition } from '../animations';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   box-sizing: border-box;
   width: 100%;
   height: 90vh;
@@ -107,7 +109,12 @@ const ExpenseDetails = ({ user }) => {
   }
 
   return (
-    <Container>
+    <Container 
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={transition}>
       <EditModal user={user} id={id} showModal={showModal} setShowModal={setShowModal}/> 
       <Header>
         <Button onClick={navigateBack}>Back</Button>

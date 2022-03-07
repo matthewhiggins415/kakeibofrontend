@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { signIn } from '../api/auth'
 import { motion } from 'framer-motion'
+import { animationOne, transition } from '../animations';
 
 const DIV = styled(motion.div)`
 box-sizing: border-box;
@@ -70,9 +71,11 @@ const Login = ({ setUser }) => {
 
   return (
     <DIV
-    animate={{ opacity: [0 ,1], y: [30, 0] }}
-    exit={{opacity: [1,0]}}
-    transition={{ duration: .4 }}
+    initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={transition}
 
     >
       <FORM onSubmit={onSignIn}>

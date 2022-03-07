@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Navigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { animationOne, transition } from '../animations';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -37,7 +39,12 @@ const Expense = ({ expense, index }) => {
   }
 
   return (
-    <Container>
+    <Container 
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={transition}>
       <p>{index + 1 + "."}</p>
       <p>{expense.title}</p>
       <p>{expense.type}</p>
