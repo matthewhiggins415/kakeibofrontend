@@ -10,6 +10,7 @@ import AddExpense from './views/AddExpense'
 import ExpenseDetails from './views/ExpenseDetails'
 import { GlobalStyle } from './globalStyles'
 import { AnimatePresence } from 'framer-motion';
+import Data from './views/Data'
 
 const App = () => {
   let location = useLocation();
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/home" element={<Home user={user}/>} exact/>
           <Route path="/add-expense" element={<AddExpense user={user}/>} exact/>
           <Route path="/expense/:id" element={<ExpenseDetails user={user}/>} exact/>
+          <Route path="/data" element={<Data user={user}/>} exact/>
         </Routes>
         </AnimatePresence>
 

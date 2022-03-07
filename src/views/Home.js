@@ -45,6 +45,7 @@ const ExpenseContainer = styled.div`
 const Home = ({ user }) => {
   const [expenses, setExpenses] = useState([])
   const [redirect, setRedirect] = useState(false)
+  const [overview, setOverview] = useState(false)
 
   useEffect(() => {
     const retrieveExpenses = async (user) => {
@@ -58,8 +59,16 @@ const Home = ({ user }) => {
     setRedirect(true)
   }
 
+  const onOverview = () => {
+    setOverview(true)
+  }
+
   if (redirect) {
     return <Navigate to="/add-expense"/>
+  }
+
+  if (overview) {
+    return <Navigate to="/data" />
   }
 
   if (!user) {
@@ -76,6 +85,7 @@ const Home = ({ user }) => {
     >
       <Header>
         <h1>Your Expenses</h1>
+        <Button onClick={onOverview}>Overview</Button>
         <Button onClick={addExpense}>New Expense</Button>
       </Header>
       <ExpenseContainer>
