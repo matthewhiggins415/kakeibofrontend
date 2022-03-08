@@ -65,7 +65,7 @@ font-size: 15px;
   cursor: pointer;
 `
 
-const AddExpense = ({ user }) => {
+const AddExpense = ({ user, notify }) => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [type, setType] = useState('')
@@ -86,12 +86,13 @@ const AddExpense = ({ user }) => {
       let res = await createExpense(user, expenseData)
       console.log(res)
       setNavigate(true)
-
+      notify('new expense created')
     } catch(err) {
       setTitle('')
       setDescription('')
       setType('')
       setCost('')
+      notify('something went wrong', 'warning')
       console.log(err)
     }
   }

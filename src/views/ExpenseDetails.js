@@ -65,7 +65,7 @@ const P = styled.p`
   margin-bottom: 5px;
 `
 
-const ExpenseDetails = ({ user }) => {
+const ExpenseDetails = ({ user, notify }) => {
   const [expense, setExpense] = useState({})
   const [navigate, setNavigate] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -102,8 +102,10 @@ const ExpenseDetails = ({ user }) => {
     try {
       let res = await deleteExpense(user, id)
       setNavigate(true)
+      notify('expense deleted')
     } catch(e) {
       console.log(e)
+      notify('something went wrong', 'warning')
     }
   }
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { signIn } from '../api/auth'
 import { motion } from 'framer-motion'
-import { animationOne, transition } from '../animations';
+import { animationOne, transition } from '../animations'
 
 const DIV = styled(motion.div)`
 box-sizing: border-box;
@@ -48,7 +48,7 @@ color: white;
 cursor: pointer;
 `
 
-const Login = ({ setUser, fireMessage }) => {
+const Login = ({ setUser, notify }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [shouldNavigate, setShouldNavigate] = useState(false)
@@ -59,10 +59,11 @@ const Login = ({ setUser, fireMessage }) => {
       const res = await signIn(email, password)
       setUser(res.data.user)    
       setShouldNavigate(true)
-      
+      notify('Login Successful')
     } catch (error) {
       setEmail('')
       setPassword('')
+      notify('Something went wrong', 'warning')
     }
   }
 

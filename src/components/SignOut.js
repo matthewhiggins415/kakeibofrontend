@@ -3,14 +3,20 @@ import { Navigate } from 'react-router-dom'
 
 import { signOut } from '../api/auth'
 
-const SignOut = ({ user, clearUser }) => {
+const SignOut = ({ user, clearUser, notify }) => {
   const [shouldNavigate, setShouldNavigate] = useState(false)
 
   useEffect(() => {
     const performSignOut = async () => {
-      await signOut(user)
-      clearUser()
-      setShouldNavigate(true)
+
+      try { 
+        await signOut(user)
+        clearUser()
+        setShouldNavigate(true)
+        notify('sign out success')
+      } catch(e) {
+        notify('something went wrong', 'warning')
+      }
     }
     performSignOut()
   }, [])

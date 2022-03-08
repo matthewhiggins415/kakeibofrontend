@@ -11,34 +11,39 @@ import ExpenseDetails from './views/ExpenseDetails'
 import { GlobalStyle } from './globalStyles'
 import { AnimatePresence } from 'framer-motion';
 import Data from './views/Data'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   let location = useLocation();
 
   const [user, setUser] = useState(null)
 
-  console.log(user)
-
   const clearUser = () => setUser(null)
+
+  const notify = (message, type) => {
+    if (type === "warning") {
+      toast.warn(`${message}`)
+    } else {
+      toast.success(`${message}`)};
+    }
 
   return (
     <div>
         <Navbar user={user}/>
-
+        <ToastContainer position="top-left" autoClose={2000}/>
         <AnimatePresence exitBeforeEnter>
         <Routes >
           <Route path="/" element={<Landing />} exact/>
           <Route path="/register" element={<Register setUser={setUser} exact/>}/>
-          <Route path="/login" element={<Login setUser={setUser} exact/>}/>
-          <Route path="/sign-out" element={<SignOut clearUser={clearUser} user={user}/>} exact/>
+          <Route path="/login" element={<Login setUser={setUser} notify={notify} exact/>}/>
+          <Route path="/sign-out" element={<SignOut clearUser={clearUser} user={user} notify={notify}/>} exact/>
           <Route path="/home" element={<Home user={user}/>} exact/>
-          <Route path="/add-expense" element={<AddExpense user={user}/>} exact/>
-          <Route path="/expense/:id" element={<ExpenseDetails user={user}/>} exact/>
+          <Route path="/add-expense" element={<AddExpense user={user} notify={notify}/>} exact/>
+          <Route path="/expense/:id" element={<ExpenseDetails user={user} notify={notify}/>} exact/>
           <Route path="/data" element={<Data user={user}/>} exact/>
         </Routes>
         </AnimatePresence>
-
-
     <GlobalStyle/>
     </div>
   );

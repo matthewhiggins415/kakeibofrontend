@@ -4,8 +4,10 @@ import Chart from "react-apexcharts"
 import styled from 'styled-components'
 import { getAllExpenses } from '../api/expense'
 import DataCard from '../components/DataCard'
+import { motion } from 'framer-motion'
+import { animationOne, transition } from '../animations';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100%;
   height: 90vh;
   display: flex;
@@ -149,7 +151,13 @@ const Data = ({ user }) => {
     <Header>
       <Button onClick={handleNavigate}>Go Back</Button>
     </Header>
-    <Container>
+    <Container
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={transition}
+    >
       <ChartContainer>
         <Chart options={options} series={series} type="donut" width="380" />
       </ChartContainer>
