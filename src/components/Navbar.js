@@ -34,7 +34,7 @@ const linkStyle = {
   "backgroundColor": "white", 
   padding: "12px", 
   "borderRadius": "10px",
-  "box-shadow": "rgba(0, 0, 0, 0.15) 0px 2px 8px"
+  "box-shadow": "rgba(0, 0, 0, 0.16) 0px 1px 4px"
 }
 
 const imgStyle = {

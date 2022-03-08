@@ -16,7 +16,7 @@ const App = () => {
   let location = useLocation();
 
   const [user, setUser] = useState(null)
-  // const [messageAlerts, setMessageAlerts] = useState([]) 
+
   console.log(user)
 
   const clearUser = () => setUser(null)
@@ -24,9 +24,8 @@ const App = () => {
   return (
     <div>
         <Navbar user={user}/>
-      
-        <AnimatePresence exitBeforeEnter>
 
+        <AnimatePresence exitBeforeEnter>
         <Routes >
           <Route path="/" element={<Landing />} exact/>
           <Route path="/register" element={<Register setUser={setUser} exact/>}/>

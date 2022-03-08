@@ -24,6 +24,9 @@ const Header = styled.div`
 `
 
 const Button = styled.button`
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hubballi&family=Saira+Condensed:wght@600&family=Smooch+Sans:wght@100&display=swap');
+font-family: 'Saira Condensed', sans-serif;
+font-size: 15px;
   box-sizing: border-box;
   width: 20%;   
   max-width: 200px;
@@ -31,7 +34,7 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   padding: 15px;
-  background-color: black;
+  background-color: #3A3B3C;
   color: white;
   cursor: pointer;
 `

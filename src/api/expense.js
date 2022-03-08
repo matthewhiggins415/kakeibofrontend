@@ -1,7 +1,6 @@
 import axios from 'axios'
 import apiUrl from '../../src/apiConfig'
 
-
 // read all  
 export const getAllExpenses = (user) => {
   return axios.get(apiUrl + '/expenses', {

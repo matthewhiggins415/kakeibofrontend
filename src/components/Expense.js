@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { animationOne, transition } from '../animations';
+import { FiMoreHorizontal } from 'react-icons/fi';
 
 const Container = styled(motion.div)`
   box-sizing: border-box;
@@ -14,17 +15,24 @@ const Container = styled(motion.div)`
   margin: 0 auto;
   margin-top: 10px;
   border-radius: 10px;
+  background-color: #fff;
+  color: #3A3B3C;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `
 
 const Button = styled.button`
   padding: 10px;
   color: black;
-  background-color: white;
+  background-color: transparent;
   border: none;
   cursor: pointer;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  width: auto;
+  `
+
+  const P = styled.p`
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hubballi&family=Saira+Condensed:wght@600&family=Smooch+Sans:wght@100&display=swap');
+  font-family: 'Saira Condensed', sans-serif;
   `
 
 const Expense = ({ expense, index }) => {
@@ -45,11 +53,11 @@ const Expense = ({ expense, index }) => {
       exit='out'
       variants={animationOne}
       transition={transition}>
-      <p>{index + 1 + "."}</p>
-      <p>{expense.title}</p>
-      <p>{expense.type}</p>
-      <p>{'$' + expense.cost}</p>
-      <Button onClick={toggleNavigate}>details</Button>
+      <P>{index + 1}</P>
+      <P>{expense.title}</P>
+      <P>{expense.type}</P>
+      <P>{'$' + expense.cost}</P>
+      <Button onClick={toggleNavigate}><FiMoreHorizontal size={20} color={'#3A3B3C'}/></Button>
     </Container>
   )
 }

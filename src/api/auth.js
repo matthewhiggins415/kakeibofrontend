@@ -48,16 +48,16 @@ export const signIn = (email, password) => {
     )
   }
 
-  // get a single landlord 
-  export const getUser = (user) => {
-    return axios.get(apiUrl + `/user/${user._id}`,  
-      {
-        headers: {
-          Authorization: `Bearer ${user.token}`
-        }
+// get a single landlord 
+export const getUser = (user) => {
+  return axios.get(apiUrl + `/user/${user._id}`,  
+    {
+      headers: {
+        Authorization: `Bearer ${user.token}`
       }
-    )
-  }
+    }
+  )
+}
 
 // Edit a landlord 
 export const editALandlord = (user, data, id) => {

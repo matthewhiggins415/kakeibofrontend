@@ -48,7 +48,7 @@ color: white;
 cursor: pointer;
 `
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, fireMessage }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [shouldNavigate, setShouldNavigate] = useState(false)
@@ -59,6 +59,7 @@ const Login = ({ setUser }) => {
       const res = await signIn(email, password)
       setUser(res.data.user)    
       setShouldNavigate(true)
+      
     } catch (error) {
       setEmail('')
       setPassword('')
