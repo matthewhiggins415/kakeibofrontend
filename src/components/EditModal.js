@@ -96,7 +96,6 @@ const EditModal = ({ user, id, setShowModal, showModal }) => {
 
     const handleSubmit = async (e) => {
       e.preventDefault()
-      console.log('submitted')
 
       try {
         let updatedExpense = {
@@ -106,7 +105,6 @@ const EditModal = ({ user, id, setShowModal, showModal }) => {
           type: type
         }
         let res = await updateExpense(user, id, updatedExpense)
-        console.log(res)
         setShowModal(false)
       } catch(e) {
         console.error(e)

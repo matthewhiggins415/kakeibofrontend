@@ -84,7 +84,6 @@ const AddExpense = ({ user, notify }) => {
       }
 
       let res = await createExpense(user, expenseData)
-      console.log(res)
       setNavigate(true)
       notify('new expense created')
     } catch(err) {

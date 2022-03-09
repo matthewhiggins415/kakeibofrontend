@@ -72,8 +72,6 @@ const ExpenseDetails = ({ user, notify }) => {
   const { id } = useParams()
 
   useEffect(() => {
-    console.log(id)
-
     const retrieveExpense = async () => {
       let res = await getExpense(user, id)
       setExpense(res.data.expense)
@@ -104,7 +102,6 @@ const ExpenseDetails = ({ user, notify }) => {
       setNavigate(true)
       notify('expense deleted')
     } catch(e) {
-      console.log(e)
       notify('something went wrong', 'warning')
     }
   }
