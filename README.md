@@ -18,7 +18,7 @@ I recently stumbled across Kakeibo just out of curiousity and decided it would m
 
 <img src="https://user-images.githubusercontent.com/67120920/157351099-f944a781-0d82-4015-a02a-5f2f14e1734d.jpg" alt="wireframe" style="width:450px; height: 450px; margin: 0 auto;"/>
 
-And soon the home veiw turned into this ⬇
+..the home view turned into this ⬇
 
 <img src="https://user-images.githubusercontent.com/67120920/157352116-b3dab2ac-3a16-466e-b903-ffa60f7594c8.png" alt="app home screen" style="width:550px; height:auto; margin:0 auto;"/>
 
