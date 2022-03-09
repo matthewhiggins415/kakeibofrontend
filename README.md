@@ -29,3 +29,13 @@ I recently stumbled across Kakeibo just out of curiousity and decided it would m
 ..and the data view turned into that ⬇
 
 <img src="https://user-images.githubusercontent.com/67120920/157352124-9848975e-a775-426e-bc9f-b858895c1e6a.png" alt="app data screen" style="width:550px; height:auto; margin:0 auto;"/>
+
+### Challenges:
+1. First time working with framer-motion. I really liked the built-in functionality of jQuery's page transitions. Had to use framer-motion to get the same effect. 
+2. Working with data as Number values in Javascript can be a little tough to just keep track when interpolating into a string and things. 
+
+### Future Goals: 
+1. Create a seed script on the backend that is triggered with a toggle button on the frontend. So if someone new comes to site they can just toggle the button to see a data rich project. 
+2. Connect with the Plaid API, this is a major goal, but by using the Plaid API in a production level environment users could see their own expenses in realtime after connecting through Plaid to their preferred banking. 
+3. More data visualization. It was really fun using apexcharts to represent the numerical data and found the package really straightforward. Would be fun to see more useful info. 
+4. Work with framer motion more to improve micro-animations and become more comfortable with that package. 
