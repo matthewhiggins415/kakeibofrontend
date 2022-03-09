@@ -7,7 +7,7 @@ This project is a simple budgeting tool based on the Japanese budgeting philosop
 3. ``` npm start ```
 4. [Kakeibo Backend Repo](https://github.com/matthewhiggins415/kakeibobackend) ..should you need it
 
-### Technologies User: 
+### Technologies Used: 
 - React 
 - styled-components
 - framer-motion
