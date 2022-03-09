@@ -49,3 +49,12 @@ export const deleteExpense = (user, id) => {
     }
   })
 }
+
+// delete all expenses 
+export const clearExpenses = (user) => {
+  return axios.delete(apiUrl + '/expenses', {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}

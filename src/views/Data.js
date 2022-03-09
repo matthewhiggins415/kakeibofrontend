@@ -70,7 +70,7 @@ const Data = ({ user }) => {
         const retrieveExpenses = async (user) => {
           let res = await getAllExpenses(user)
           let expenses = res.data.expenses
-       
+          console.log(expenses)
           let needsArr = expenses.filter(expense => expense.type === 'Need')
           let wantsArr = expenses.filter(expense => expense.type === 'Want')
           let culturalArr = expenses.filter(expense => expense.type === 'Cultural')
