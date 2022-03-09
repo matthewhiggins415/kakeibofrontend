@@ -3,7 +3,7 @@ This project is a simple budgeting tool based on the Japanese budgeting philosop
 
 [Kakeibo Backend Repo](https://github.com/matthewhiggins415/kakeibobackend)
 
-###Technologies User: 
+### Technologies User: 
 - React 
 - styled-components
 - framer-motion
@@ -13,7 +13,7 @@ This project is a simple budgeting tool based on the Japanese budgeting philosop
 - react-router-dom
 - react-icons
 
-###Planning: 
+### Planning: 
 I recently stumbled across Kakeibo just out of curiousity and decided it would make a fun project. Once I had the concept in mind I drew out a quick wireframe for what each view within the app. On each view I drew out the respective functionality. As I drew out the wireframe I wrote down a list of key features and functionality I would need to bring this together. This feature list was a very loose idea; for some features I was unsure what technology or package I would need exactly. I then built the project file structure and key features like authentication first. From there, I built each view from my wireframe and figured out how to implement the features from the list. 
 
 ![Wireframe](https://user-images.githubusercontent.com/67120920/157351099-f944a781-0d82-4015-a02a-5f2f14e1734d.jpg)
