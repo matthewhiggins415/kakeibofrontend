@@ -1,7 +1,7 @@
 let apiUrl
 
 const apiUrls = {
-  production: 'database',
+  production: 'https://arcane-garden-92456.herokuapp.com',
   development: 'http://localhost:2020'
 }
 

@@ -61,7 +61,7 @@ const Landing = () => {
           initial={{ opacity: 0}}
           animate={{ translateX: 200, opacity: 1 }}
           transition={{ duration: 3, times: [0, 0.3, 1] }}
-        >KAKEIDO</H1>
+        >KAKEIBO</H1>
         <H3
           cx={500}
           initial={{ opacity: 0}}
