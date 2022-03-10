@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/kakeibofrontend/static/css/main.76a11260.css",
-    "main.js": "/kakeibofrontend/static/js/main.752a682f.js",
+    "main.js": "/kakeibofrontend/static/js/main.7b828b6f.js",
     "static/js/787.2aa60a14.chunk.js": "/kakeibofrontend/static/js/787.2aa60a14.chunk.js",
     "static/media/background.jpg": "/kakeibofrontend/static/media/background.0ce02ede09a3230f1ddf.jpg",
     "static/media/theArtLogo.png": "/kakeibofrontend/static/media/theArtLogo.9411bfb3ddd1f4df6b5b.png",
     "index.html": "/kakeibofrontend/index.html",
     "main.76a11260.css.map": "/kakeibofrontend/static/css/main.76a11260.css.map",
-    "main.752a682f.js.map": "/kakeibofrontend/static/js/main.752a682f.js.map",
+    "main.7b828b6f.js.map": "/kakeibofrontend/static/js/main.7b828b6f.js.map",
     "787.2aa60a14.chunk.js.map": "/kakeibofrontend/static/js/787.2aa60a14.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.76a11260.css",
-    "static/js/main.752a682f.js"
+    "static/js/main.7b828b6f.js"
   ]
 }
