@@ -59,26 +59,17 @@ const Register = ({ setUser }) => {
     event.preventDefault()
 
     try {
-      await signUp(email, password, confirmPassword)
-      const res = await signIn(email, password)
-      setUser(res.data.user)
+      const res = await signUp(email, password, confirmPassword)
+      // const res = await signIn(email, password)
+      // setUser(res.data.user)
       console.log(res.data.user)
-    
-      // msgAlert({
-      //   heading: 'Sign Up Success',
-      //   message: signUpSuccess,
-      //   variant: 'success'
-      // })
-      setShouldNavigate(true)
+   
+      // setShouldNavigate(true)
     } catch (error) {
       setEmail('')
       setPassword('')
       setConfirmPassword('')
-      // msgAlert({
-      //   heading: 'Sign Up Failed with error: ' + error.message,
-      //   message: signUpFailure,
-      //   variant: 'danger'
-      // })
+      console.log(error)
     }
   }
 

@@ -3,6 +3,7 @@ import apiUrl from '../apiConfig'
 
 //Register
 export const signUp = (email, password, passwordConfirmation) => {
+  console.log(apiUrl)
   return axios.post(apiUrl + '/sign-up/', {
     credentials: {
       email,
