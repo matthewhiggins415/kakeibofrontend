@@ -1,7 +1,7 @@
 let apiUrl
 
 const apiUrls = {
-  production: 'https://arcane-garden-92456.herokuapp.com',
+  production: 'https://arcane-garden-92456.herokuapp.com/kakeibofrontend',
   development: 'http://localhost:2020'
 }
 

@@ -4,7 +4,7 @@ import apiUrl from '../apiConfig'
 //Register
 export const signUp = (email, password, passwordConfirmation) => {
   console.log(apiUrl)
-  return axios.post(apiUrl + '/sign-up/', {
+  return axios.post(apiUrl + '/sign-up', {
     credentials: {
       email,
       password,
@@ -15,7 +15,7 @@ export const signUp = (email, password, passwordConfirmation) => {
   
 //Login
 export const signIn = (email, password) => {
-    return axios.post(apiUrl + '/sign-in/', {
+    return axios.post(apiUrl + '/sign-in', {
       credentials: {
         email,
         password
@@ -25,7 +25,7 @@ export const signIn = (email, password) => {
   
 //Logout
   export const signOut = (user) => {
-    return axios.delete(apiUrl + '/sign-out/', {
+    return axios.delete(apiUrl + '/sign-out', {
       headers: {
         Authorization: `Bearer ${user.token}`
       }
@@ -34,7 +34,7 @@ export const signIn = (email, password) => {
   
   export const changePassword = (oldPassword, newPassword, user) => {
     return axios.patch(
-      apiUrl + '/change-password/',
+      apiUrl + '/change-password',
       {
         passwords: {
           old: oldPassword,
