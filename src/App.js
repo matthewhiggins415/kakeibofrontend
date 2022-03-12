@@ -35,7 +35,7 @@ const App = () => {
         <AnimatePresence exitBeforeEnter>
         <Routes >
           <Route path="/" element={<Landing />} exact/>
-          <Route path="/register" element={<Register setUser={setUser} exact/>}/>
+          <Route path="/register" notify={notify} element={<Register setUser={setUser} exact/>}/>
           <Route path="/login" element={<Login setUser={setUser} notify={notify} exact/>}/>
           <Route path="/sign-out" element={<SignOut clearUser={clearUser} user={user} notify={notify}/>} exact/>
           <Route path="/home" element={<Home user={user} notify={notify}/>} exact/>

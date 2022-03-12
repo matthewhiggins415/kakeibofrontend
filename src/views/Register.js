@@ -49,7 +49,7 @@ color: white;
 cursor: pointer;
 `
 
-const Register = ({ setUser }) => {
+const Register = ({ setUser, notify }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -59,16 +59,15 @@ const Register = ({ setUser }) => {
     event.preventDefault()
 
     try {
-      const res = await signUp(email, password, confirmPassword)
-      // const res = await signIn(email, password)
-      // setUser(res.data.user)
-      console.log(res.data.user)
-   
-      // setShouldNavigate(true)
+      await signUp(email, password, confirmPassword)
+      const res = await signIn(email, password)
+      setUser(res.data.user)   
+      setShouldNavigate(true)
     } catch (error) {
       setEmail('')
       setPassword('')
       setConfirmPassword('')
+      notify('something went wrong', )
       console.log(error)
     }
   }
