@@ -34,7 +34,7 @@ const App = () => {
         <ToastContainer position="top-left" autoClose={2000}/>
         <AnimatePresence exitBeforeEnter>
         <Routes >
-          <Route path="/" element={<Landing />} exact/>
+          <Route path="/kakeibofrontend" element={<Landing />} exact/>
           <Route path="/register" notify={notify} element={<Register setUser={setUser} exact/>}/>
           <Route path="/login" element={<Login setUser={setUser} notify={notify} exact/>}/>
           <Route path="/sign-out" element={<SignOut clearUser={clearUser} user={user} notify={notify}/>} exact/>
